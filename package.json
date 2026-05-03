@@ -16,14 +16,16 @@
     "url": "https://github.com/anthropics/claude-code/issues"
   },
   "scripts": {
-    "prepare": "node -e \"if (!process.env.AUTHORIZED) { console.error('ERROR: Direct publishing is not allowed.\\nPlease see the release workflow documentation to publish this package.'); process.exit(1); }\"",
-    "restore:sourcemap": "node ./scripts/restore-sourcemap-sources.mjs --overwrite",
     "build": "bun build src/entrypoints/cli.tsx --outdir ./dist --target node --sourcemap",
-    "smoke": "node ./dist/cli.js --version"
+    "dev": "bun ./dist/cli.js",
+    "version": "bun ./dist/cli.js --version"
   },
   "dependencies": {
     "@alcalzone/ansi-tokenize": "^0.3.0",
     "@ant/claude-for-chrome-mcp": "./stubs/ant-claude-for-chrome-mcp",
+    "@ant/computer-use-input": "./stubs/ant-computer-use-input",
+    "@ant/computer-use-mcp": "./stubs/ant-computer-use-mcp",
+    "@ant/computer-use-swift": "./stubs/ant-computer-use-swift",
     "@anthropic-ai/bedrock-sdk": "^0.26.4",
     "@anthropic-ai/foundry-sdk": "^0.2.3",
     "@anthropic-ai/mcpb": "^2.1.2",
@@ -61,6 +63,7 @@
     "ajv": "^8.18.0",
     "asciichart": "^1.5.25",
     "auto-bind": "^5.0.1",
+    "audio-capture-napi": "./stubs/audio-capture-napi",
     "axios": "^1.14.0",
     "bidi-js": "^1.0.3",
     "chalk": "^5.6.2",
@@ -78,8 +81,10 @@
     "get-east-asian-width": "^1.5.0",
     "google-auth-library": "^10.6.2",
     "graceful-fs": "^4.2.11",
+    "highlight.js": "^11.11.1",
     "human-signals": "^8.0.1",
     "indent-string": "^5.0.0",
+    "image-processor-napi": "./stubs/image-processor-napi",
     "jsonc-parser": "^3.3.1",
     "lodash-es": "^4.17.23",
     "lru-cache": "^11.2.7",
@@ -100,6 +105,7 @@
     "tree-kill": "^1.2.2",
     "turndown": "^7.2.2",
     "undici": "^7.24.6",
+    "url-handler-napi": "./stubs/url-handler-napi",
     "usehooks-ts": "^3.1.1",
     "vscode-jsonrpc": "^8.2.1",
     "ws": "^8.20.0",
